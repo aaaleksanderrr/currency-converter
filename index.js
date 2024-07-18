@@ -16,7 +16,7 @@ const getCurrencyValue = async () => {
   try {
     pResult.textContent = "Loading data, please wait";
 
-    const res = await fetch(`http://api.nbp.pl/api/exchangerates/rates/a/${getCurrency()}/`);
+    const res = await fetch(`https://api.nbp.pl/api/exchangerates/rates/a/${getCurrency()}/`);
     const data = await res.json();
     const rates = data?.rates[0]?.mid;
 
