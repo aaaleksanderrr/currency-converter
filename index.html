@@ -9,16 +9,27 @@
   <body>
     <div class="container">
       <h1>Przelicznik walut</h1>
-      <div class="main-section">
-        <input id="inputValue" type="number" placeholder="Podaj kwotę" />
-        <select id="selectCurrency">
-          <option id="optEUR" value="eur">EUR</option>
-          <option id="optUSD" value="usd">USD</option>
-          <option id="optCHF" value="chf">CHF</option>
-        </select>
-        <button id="buttonSubmit">Przelicz na PLN</button>
-        <p id="pResult"></p>
-      </div>
+      <main class="main-section">
+        <section class="form-section">
+          <form id="converterForm">
+            <input
+              id="inputValue"
+              type="number"
+              placeholder="Podaj kwotę"
+              required
+              min="0.01"
+              step="0.01"
+            />
+            <select id="selectCurrency">
+              <option id="optEUR" value="eur">EUR</option>
+              <option id="optUSD" value="usd">USD</option>
+              <option id="optCHF" value="chf">CHF</option>
+            </select>
+            <button type="submit" id="buttonSubmit">Przelicz na PLN</button>
+          </form>
+          <p id="pResult" class="pResult"></p>
+        </section>
+      </main>
     </div>
     <script src="index.js"></script>
   </body>

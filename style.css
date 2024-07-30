@@ -6,14 +6,20 @@
 
 .main-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.form-section {
+  display: flex;
+  align-items: center;
 }
 
 .main-section > * {
   margin: 3px;
 }
 
-#pResult {
+.pResult {
   font-weight: bold;
   color: blueviolet;
+  margin: 5px;
 }
