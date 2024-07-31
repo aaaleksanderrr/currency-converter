@@ -1,25 +1,34 @@
 const inputValue = document.getElementById("inputValue");
 const selectCurrency = document.getElementById("selectCurrency");
-const pResult = document.getElementById("pResult");
+const result = document.getElementById("result");
 const converterForm = document.getElementById("converterForm");
+const loader = document.getElementById("loader");
+const errors = document.getElementById("errors");
 
 const getCurrencyValue = async () => {
   try {
-    pResult.textContent = "Loading data, please wait";
+    loader.classList.remove("hidden");
+    errors.classList.add("hidden");
     const res = await fetch(
       `https://api.nbp.pl/api/exchangerates/rates/a/${selectCurrency.value}/`
     );
     const data = await res.json();
-    const rates = data?.rates[0]?.mid;
+    const rates = data?.rates?.[0]?.mid;
+
+    loader.classList.add("hidden");
 
     if (rates) {
-      pResult.textContent = rates * inputValue.value;
+      result.textContent = rates * inputValue.value;
     } else {
-      pResult.textContent = "Cannot find specified data";
+      loader.classList.add("hidden");
+      errors.classList.remove("hidden");
+      errors.textContent = "Wystąpił błąd podczas pobierania danych, spróbuj ponownie później";
     }
   } catch (err) {
+    loader.classList.add("hidden");
+    errors.classList.remove("hidden");
     console.error("Error: " + err);
-    pResult.textContent = "Error occured, please try again later";
+    errors.textContent = "Wystąpił błąd podczas przetwarzania danych, spróbuj ponownie później";
   }
 };
 

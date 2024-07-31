@@ -18,8 +18,33 @@
   margin: 3px;
 }
 
-.pResult {
+.result {
   font-weight: bold;
   color: blueviolet;
   margin: 5px;
+}
+
+.errors {
+  font-weight: bold;
+  color: crimson;
+}
+
+.loader {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 30px;
+  animation: l1 1s linear infinite alternate;
+  margin-top: 10px;
+}
+.loader:before {
+  content: "Ładowanie danych...";
+}
+@keyframes l1 {
+  to {
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
 }
